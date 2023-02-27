@@ -4,7 +4,7 @@
     {
         public int Id { get; set; }
         public string Title { get; set; }
-        
+        public string MovieState { get; set; }
         public string Description { get; set; }
         public bool IsPhimLe { get; set; }
         public int AirYear { get; set;}
@@ -22,13 +22,14 @@
         
 
         
-        public Movie(int id, string title, string description,bool isPhimLe,
+        public Movie(int id, string title,string movieState ,string description,bool isPhimLe,
             int airYear, List<string> category, string director,string currentEpisode,
             string maxEpisode ,string length, string nation, double iMDbScore,
             List<string> actors, int view)
         {
             Id = id;
             Title = title;
+            MovieState = movieState;
             Description = description;
             IsPhimLe= isPhimLe;
             AirYear = airYear;

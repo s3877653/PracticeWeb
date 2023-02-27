@@ -38,7 +38,7 @@
 		<div class="movie-info-column">
 			@if (Model.Movie.IsPhimLe)
 			{
-				<div>Dang phat:HD</div>
+				<div>@Model.Movie.MovieState</div>
 			}
 			else if (!Model.Movie.IsPhimLe)
 			{
