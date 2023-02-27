@@ -1,5 +1,71 @@
 ﻿@page
 @model RazorLoginPage.Pages.FilteredPage.FilteredMoviePageModel
+<style>
+	h2 {
+		margin: 30px 0px 10px 0px;
+	}
+
+	.movie-row {
+		display: flex;
+		justify-content: flex-start;
+		flex-wrap: wrap;
+		margin: 0 -15px;
+	}
+
+	.main-body {
+		magin: 20px,5%;
+	}
+
+	.movie-card {
+		background-color: lightgrey;
+		width: 17%;
+		height: 200px;
+		margin-left: 15px;
+		margin-top: 15px;
+	}	
+	.movie-card-img {
+		width: 100%;
+		height: 75%;
+		background-color: darkgrey;
+	}
+
+	.movie-card-img-btn {
+		width: 100%;
+		height: 100%;
+		background-color: darkgrey;
+	}
+
+	footer {
+		background-color: black;
+		color: white;
+		width: 100%;
+	}
+</style>
 <div>
-	<h2 class="text-primary">Phim le</h2>
+	@if (Model.Category.Equals("phimLe"))
+	{
+		<h2 class="text-primary">Phim Le:</h2>
+		<div class="recommended-movie-container">
+			<div class="movie-row">
+				@foreach (var movie in Model.movieList)
+				{
+					@if (movie.IsPhimLe)
+					{
+						<div class="movie-card">							
+							<span class="movie-tag">Full HD</span>														
+							<form method="post" class="movie-card-img">
+								<input hidden value="@movie.Id" asp-for="MovieID" />
+								<button type="submit" asp-page-handler="MovieHandler" class="btn movie-card-img-btn">movie image</button>
+							</form>
+							<div class="movie-card-name">@movie.Title</div>
+						</div>
+					}					
+				}
+			</div>
+		</div>
+	}
+	else
+	{
+		<h2>Khong tim thay phim the loai nay</h2>
+	}
 </div>

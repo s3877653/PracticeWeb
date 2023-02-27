@@ -10,11 +10,7 @@ namespace RazorLoginPage.Pages.Movies
 		public static List<string> actors = new()
 		{
 			"khoi","nam","khang"
-		};
-		public static List<string> allCatergory = new()
-		{
-			"action","romance","funny","vnitage","horror","phylosophy","war","sport","cartoon","Ci-fi","Anime"
-		};
+		};		
 		public static List<string> catergories1 = new()
 		{
 			"action","romance","horror"
