@@ -5,7 +5,7 @@ namespace RazorLoginPage.Pages.FilteredPage
 {
     public class FilteredMoviePageModel : PageModel
     {
-        public void OnGet()
+        public void OnGet(string category)
         {
         }
     }
