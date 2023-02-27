@@ -1,0 +1,70 @@
+﻿@page
+@model RazorLoginPage.Pages.RegisterVModel.IndexModel
+<head>
+	<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+	<script src="jquery-3.6.3.min.js"></script>
+	<script>
+		$(document).ready(function testPasswordStrength() {
+			$(".password-create").keyup(function () {
+				if ($(".password-create").val() == "") {
+					$(".strength-message").html("");
+				}
+				if ($(".password-create").val().length <= 4 && $(".password-create").val().length >= 1) {
+					$(".strength-message").css("color", "red");
+					$(".strength-message").html("weak password");
+				}
+				if ($(".password-create").val().length > 4 && $(".password-create").val().length <= 8) {
+					$(".strength-message").css("color", "orange");
+					$(".strength-message").html("Medium password");
+				}
+				if ($(".password-create").val().length > 8) {
+					$(".strength-message").css("color", "green");
+					$(".strength-message").html("Strong password");
+				}
+
+			})
+
+		});
+	</script>
+</head>
+<body>
+<form method="post">
+	<div class="boder p-3 mt-4">
+		<h2 class="text-primary">Register</h2>
+		<hr />
+		<div class="md-3">
+			<label asp-for="RegisterVM.UserName">User name:</label>
+			<input asp-for="RegisterVM.UserName" /><br />
+			<span asp-validation-for="RegisterVM.UserName" class="text-danger"></span>
+			@if(ViewData["NameExist"] != null)
+			{
+				<div class="text-danger">@ViewData["NameExist"]</div>
+			}
+		</div>
+		<div class="md-3">
+			<label asp-for="RegisterVM.Email">User Email:</label>
+			<input asp-for="RegisterVM.Email" /><br />
+			<span asp-validation-for="RegisterVM.Email" class="text-danger"></span>
+			@if (ViewData["EmailExist"] != null)
+			{
+				<div class="text-danger">@ViewData["EmailExist"]</div>
+			}
+		</div>
+		<div class="md-3">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<label asp-for="RegisterVM.Password">User Password:</label>
+			<input type="password" asp-for="RegisterVM.Password" class="password-create" /><br />
+			<span asp-validation-for="RegisterVM.Password" class="text-danger"></span>
+		</div>
+		<div class="strength-message"></div>
+		<div class="md-3">
+			<label asp-for="RegisterVM.ConfirmPassword">Confirm Password:</label>
+			<input type="password" asp-for="RegisterVM.ConfirmPassword"/><br />
+			<span asp-validation-for="RegisterVM.ConfirmPassword" class="text-danger"></span>
+		</div>
+		<button type="submit" class="btn btn-primary">Create</button></br>
+			<a asp-page="/LoginVModel/Index">Already have an account?</a>
+	</div>
+
+</form>
+</body>

@@ -1,0 +1,43 @@
+﻿@page "{id}";
+@model RazorLoginPage.Pages.Movies.MovieWatchPageModel
+<style>
+	.watch-sreen{
+		width:100%;
+		height: 300px;
+		background-color:gray;
+	}
+</style>
+<h2 class="text-primary">This is the movie watch page</h2>
+<div class="main-container">
+	<div class="top-banner">
+		<p style="white-space:nowrap">			
+			<p style="display:inline-block"><a asp-page="/HomePage/Index">Xem phim</a>></p>
+				<a>
+				@foreach(var catergory in Model.Movie.Category)
+				{
+					<p style="display:inline-block"><a asp-page="/HomePage/Index">@catergory</a>></p>
+				}
+			</a>
+				@Model.Movie.Title
+		</p>
+	</div>
+	<div class="watch-sreen">watch screen</div>
+	<div class="movie-infromation">		
+		@if (Model.Movie.IsPhimLe)
+		{
+			<div>Dang phat:HD</div>
+		}
+		else if (!Model.Movie.IsPhimLe)
+		{
+			if (Convert.ToInt32(Model.Movie.CurrentEpisodes) < Convert.ToInt32(Model.Movie.MaxEpisode))
+			{
+				<div>Dang phat:@Model.Movie.CurrentEpisodes/@Model.Movie.MaxEpisode</div>
+			}
+			else
+			{
+				<div>Hoan thanh:@Model.Movie.CurrentEpisodes / @Model.Movie.MaxEpisode</div>
+			}
+		}
+		<div>Thể loại:</div>
+	</div>
+</div>

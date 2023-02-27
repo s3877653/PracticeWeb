@@ -1,0 +1,17 @@
+﻿@page
+@model RazorAdminPage.Pages.Shared.Admin.AdminHomePageModel
+<style>
+	.admin-menu{
+		display:flex;
+		justify-content:space-evenly;
+	}
+</style>
+<h2>This is the admin home page</h2>
+<div class="admin-menu">
+	<div><a class="btn btn-primary" asp-page="/Index">Users</a></div>
+	<div><a class="btn btn-secondary">Movies</a></div>
+	<div><a class="btn btn-dark">Events</a></div>
+
+</div>
+
+

@@ -1,0 +1,24 @@
+﻿@page
+@model RazorLoginPage.Pages.Users.EditModel
+<form method="post">
+	<div class="boder p-3 mt-4">
+		<h2 class="text-primary">Update user</h2>
+		<hr/>
+		<input hidden asp-for="User.UserId"/>
+		<div class="md-3">
+			<label asp-for="User.UserName">User name:</label>
+			<input asp-for="User.UserName" />
+		</div>
+		<div class="md-3">
+			<label asp-for="User.Email">User Email:</label>
+			<input asp-for="User.Email" />
+		</div>
+		<div class="md-3">
+			<label asp-for="User.Password">User Password:</label>
+			<input asp-for="User.Password" />
+		</div>
+		<button type="submit" class="btn btn-primary">Update</button>
+		
+	</div>
+
+</form>

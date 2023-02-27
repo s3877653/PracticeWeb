@@ -1,0 +1,26 @@
+﻿@page
+@model RazorLoginPage.Pages.Users.CreateModel
+<form method="post">
+	<div class="boder p-3 mt-4">
+		<h2 class="text-primary">Add new user</h2>
+		<hr/>
+		<div class="md-3">
+			<label asp-for="User.UserName">User name:</label>
+			<input asp-for="User.UserName" /><br/>
+			<span asp-validation-for="User.UserName" class="text-danger"></span>
+		</div>
+		<div class="md-3">
+			<label asp-for="User.Email">User Email:</label>
+			<input asp-for="User.Email" /><br/>
+			<span asp-validation-for="User.Email" class="text-danger"></span>
+		</div>
+		<div class="md-3">
+			<label asp-for="User.Password">User Password:</label>
+			<input asp-for="User.Password" /><br/>
+			<span asp-validation-for="User.Password" class="text-danger"></span>
+		</div>
+		<button type="submit" class="btn btn-primary">Create</button>
+		
+	</div>
+
+</form>

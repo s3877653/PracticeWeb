@@ -1,0 +1,26 @@
+﻿@page
+@model RazorLoginPage.Pages.LoginVModel.IndexModel
+<form method="post">
+	<div class="boder p-3 mt-4">
+		<h2 class="text-primary">Login</h2>
+		<hr />
+		<div class="md-3">
+			<label asp-for="loginVM.Email">Email:</label>
+			<input asp-for="loginVM.Email" /><br />
+			<span asp-validation-for="loginVM.Email" class="text-danger"></span>
+			
+		</div>
+		<div class="md-3">
+			<label asp-for="loginVM.Password">Password:</label>
+			<input type="password" asp-for="loginVM.Password" /><br />
+			<span asp-validation-for="loginVM.Password" class="text-danger"></span>
+			@if (ViewData["LoginFail"] != null)
+			{
+				<div class="text-danger">@ViewData["LoginFail"]</div>
+			}
+		</div>
+		<button type="submit" class="btn btn-primary">Login</button></br>
+		<input type="checkbox" asp-for="loginVM.KeepLoggedIn" /> Keep loggedin?
+		<a asp-page="/RegisterVModel/Index">Create Account</a>
+	</div>
+</form>
