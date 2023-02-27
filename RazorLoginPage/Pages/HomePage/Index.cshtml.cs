@@ -63,7 +63,7 @@ namespace RazorLoginPage.Pages
         {
 			
             //khi nhấn vào ô phim sẽ post id lên url
-			return RedirectToPage("/Movies/MovieWatchPage", new {id=MovieID});
+			return RedirectToPage("/Movies/MovieInfoPage", new {id=MovieID});
         }
 		
 	}
