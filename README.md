@@ -1,3 +1,1 @@
-# PracticeWeb
-Movie webpage
-File razor admin page khong hoat dong
+File razorAdminPage khong hoat dong, chi dung file razorLoginPage
