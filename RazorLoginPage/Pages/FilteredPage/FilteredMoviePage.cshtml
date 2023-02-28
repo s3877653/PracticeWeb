@@ -91,12 +91,21 @@
 		</div>
 	}else if(Model.FilterString != null)
 	{
-		<h2 class="text-primary">Phim @Model.FilterString</h2>
+		@if (@Model.FilterInt != 0)
+		{
+			<h2 class="text-primary">Phim @Model.FilterInt</h2>
+		}
+		else
+		{
+			<h2 class="text-primary">Phim @Model.FilterString</h2>
+		}
+		
 		<div class="recommended-movie-container">
 			<div class="movie-row">
 				@foreach (var movie in Model.movieList)
 				{
-					@if (movie.Category.Contains(Model.FilterString) || movie.Nation.Equals(Model.FilterString))
+					@if (movie.Category.Contains(Model.FilterString) || movie.Nation.Equals(Model.FilterString)
+						|| movie.AirYear == Model.FilterInt)
 					{
 						<div class="movie-card">
 							@if (movie.IsPhimLe)
@@ -113,11 +122,32 @@
 							</form>
 							<div class="movie-card-name">@movie.Title</div>
 						</div>
-					}
+					}else if (Model.FilterString.Equals("truoc 2014"))
+					{
+						if (movie.AirYear <= 2014)
+						{
+							<div class="movie-card">
+								@if (movie.IsPhimLe)
+								{
+									<span class="movie-tag">@movie.MovieState</span>
+								}
+								else
+								{
+									<span class="movie-tag">@movie.CurrentEpisodes/@movie.MaxEpisode</span>
+								}
+								<form method="post" class="movie-card-img">
+									<input hidden value="@movie.Id" asp-for="MovieID" />
+									<button type="submit" asp-page-handler="MovieHandler" class="btn movie-card-img-btn">movie image</button>
+								</form>
+								<div class="movie-card-name">@movie.Title</div>
+							</div>
+						}
+					}					
 				}
 			</div>
 		</div>
 	}
+	
 
 
 	@if(Model.StringSearch != null)

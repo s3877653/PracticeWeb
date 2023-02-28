@@ -52,6 +52,7 @@ namespace RazorLoginPage.Pages.FilteredPage
 		[BindProperty]
 		public int MovieID { get; set; }
 		public string FilterString { get; set; }
+		public int FilterInt { get; set; }
 		[BindProperty(SupportsGet = true)]
 		public string StringSearch { get; set; }
 		public List<Movie> FilteredMovie = new();
@@ -62,10 +63,11 @@ namespace RazorLoginPage.Pages.FilteredPage
 			
 			_searchService = searchService;
 		}
-		public void OnGet(string filterString = "")
+		public void OnGet(string filterString = "",int filterInt=0)
         {
 			FilteredMovie = _searchService.SearchMovieService(movieList, StringSearch);
 			FilterString = filterString;
+			FilterInt = filterInt;
         }
 		public IActionResult OnPostMovieHandler()
 		{

@@ -56,13 +56,26 @@
                                 <li><a class="dropdown-item" asp-page="/FilteredPage/FilteredMoviePage" asp-route-filterString="nhat ban">Nhật Bản</a></li>
                                 <li><a class="dropdown-item" asp-page="/FilteredPage/FilteredMoviePage" asp-route-filterString="trung quoc">Trung Quốc</a></li>
                                 <li><a class="dropdown-item" asp-page="/FilteredPage/FilteredMoviePage" asp-route-filterString="han quoc">Hàn Quốc</a></li>
-                                <li><a class="dropdown-item" asp-page="/FilteredPage/FilteredMoviePage" asp-route-filterString="my">Mỹ</a></li>
-                                
-
+                                <li><a class="dropdown-item" asp-page="/FilteredPage/FilteredMoviePage" asp-route-filterString="my">Mỹ</a></li>                                
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="">Năm Phát Hành</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle nav-link text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Năm phát hành
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" asp-page="/FilteredPage/FilteredMoviePage" asp-route-filterInt="2023">2023</a></li>
+                                <li><a class="dropdown-item" asp-page="/FilteredPage/FilteredMoviePage" asp-route-filterInt="2022">2022</a></li>
+                                <li><a class="dropdown-item" asp-page="/FilteredPage/FilteredMoviePage" asp-route-filterInt="2021">2021</a></li>
+                                <li><a class="dropdown-item" asp-page="/FilteredPage/FilteredMoviePage" asp-route-filterInt="2020">2020</a></li>
+                                <li><a class="dropdown-item" asp-page="/FilteredPage/FilteredMoviePage" asp-route-filterInt="2019">2019</a></li>
+                                <li><a class="dropdown-item" asp-page="/FilteredPage/FilteredMoviePage" asp-route-filterInt="2018">2018</a></li>
+                                <li><a class="dropdown-item" asp-page="/FilteredPage/FilteredMoviePage" asp-route-filterInt="2017">2017</a></li>
+                                <li><a class="dropdown-item" asp-page="/FilteredPage/FilteredMoviePage" asp-route-filterInt="2016">2016</a></li>
+                                <li><a class="dropdown-item" asp-page="/FilteredPage/FilteredMoviePage" asp-route-filterInt="2015">2015</a></li>
+                                <li><a class="dropdown-item" asp-page="/FilteredPage/FilteredMoviePage" asp-route-filterInt="2014">2014</a></li>
+                                <li><a class="dropdown-item" asp-page="/FilteredPage/FilteredMoviePage" asp-route-filterString="truoc 2014">truoc 2014</a></li>
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="">Phim Chiếu rạp</a>
