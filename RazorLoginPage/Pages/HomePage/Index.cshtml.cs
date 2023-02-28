@@ -15,7 +15,7 @@ namespace RazorLoginPage.Pages
         };
 		public static List<string> allCatergory = new()
 		{
-			"action","romance","funny","vnitage","horror","phylosophy","war","sport","cartoon","Ci-fi","Anime"
+			"action","romance","funny","vintage","horror","phylosophy","war","sport","cartoon","Ci-fi","Anime"
 		};
 		public static List<string> catergories1 = new()
 		{

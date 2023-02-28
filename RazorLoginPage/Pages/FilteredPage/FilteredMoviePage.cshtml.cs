@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using RazorLoginPage.Interfaces;
 using RazorLoginPage.Models;
 
 namespace RazorLoginPage.Pages.FilteredPage
@@ -51,8 +52,19 @@ namespace RazorLoginPage.Pages.FilteredPage
 		[BindProperty]
 		public int MovieID { get; set; }
 		public string Category { get; set; }
-		public void OnGet(string category)
+		[BindProperty(SupportsGet = true)]
+		public string StringSearch { get; set; }
+		public List<Movie> FilteredMovie = new();
+		private readonly ISearchService _searchService;
+
+		public FilteredMoviePageModel(ISearchService searchService)
+		{
+			
+			_searchService = searchService;
+		}
+		public void OnGet(string category="")
         {
+			FilteredMovie = _searchService.SearchMovieService(movieList, StringSearch);
 			Category = category;
         }
 		public IActionResult OnPostMovieHandler()
