@@ -5,7 +5,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace RazorLoginPage.Pages.Movies
 {
-    public class MovieWatchPageModel : PageModel
+    public class MovieInfoPageModel : PageModel
     {
 		public static List<string> actors = new()
 		{
