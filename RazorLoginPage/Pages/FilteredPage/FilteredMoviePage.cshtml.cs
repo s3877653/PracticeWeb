@@ -62,10 +62,10 @@ namespace RazorLoginPage.Pages.FilteredPage
 			
 			_searchService = searchService;
 		}
-		public void OnGet(string category="")
+		public void OnGet(string filterString = "")
         {
 			FilteredMovie = _searchService.SearchMovieService(movieList, StringSearch);
-			Category = category;
+			Category = filterString;
         }
 		public IActionResult OnPostMovieHandler()
 		{
