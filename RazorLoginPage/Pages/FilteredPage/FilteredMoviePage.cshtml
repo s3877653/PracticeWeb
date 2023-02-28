@@ -89,7 +89,36 @@
 				}
 			</div>
 		</div>
+	}else if(Model.Category != null)
+	{
+		<h2 class="text-primary">Phim @Model.Category</h2>
+		<div class="recommended-movie-container">
+			<div class="movie-row">
+				@foreach (var movie in Model.movieList)
+				{
+					@if (movie.Category.Contains(Model.Category))
+					{
+						<div class="movie-card">
+							@if (movie.IsPhimLe)
+							{
+								<span class="movie-tag">@movie.MovieState</span>
+							}
+							else
+							{
+								<span class="movie-tag">@movie.CurrentEpisodes/@movie.MaxEpisode</span>
+							}
+							<form method="post" class="movie-card-img">
+								<input hidden value="@movie.Id" asp-for="MovieID" />
+								<button type="submit" asp-page-handler="MovieHandler" class="btn movie-card-img-btn">movie image</button>
+							</form>
+							<div class="movie-card-name">@movie.Title</div>
+						</div>
+					}
+				}
+			</div>
+		</div>
 	}
+
 
 	@if(Model.StringSearch != null)
 	{
