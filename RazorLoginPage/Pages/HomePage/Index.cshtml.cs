@@ -62,16 +62,17 @@ namespace RazorLoginPage.Pages
         public List<Movie> FilteredMovie = new();
         [BindProperty]
         public int MovieID { get; set; }
+        public bool HasMovie { get; set; }
 
 
 		public HomePageModel(ISearchService searchService)
         {
             _searchService= searchService;
         }
-        public void OnGet()
+        public void OnGet(bool hasmovie=false)
         {	//danh sách movie sau khi search		           
 		    FilteredMovie = _searchService.SearchMovieService(movieList,StringSearch);			                     						
-
+            HasMovie = hasmovie;
 		}
 
         public IActionResult OnPostMovieHandler()

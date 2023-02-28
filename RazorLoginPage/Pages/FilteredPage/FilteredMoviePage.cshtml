@@ -63,6 +63,7 @@
 							</form>
 							<div class="movie-card-name">@movie.Title</div>
 						</div>
+						Model.HasMovie = true;
 					}					
 				}
 			</div>
@@ -85,19 +86,21 @@
 							</form>
 							<div class="movie-card-name">@movie.Title</div>
 						</div>
+						Model.HasMovie = true;
 					}
 				}
 			</div>
 		</div>
-	}else if(Model.FilterString != null)
+	}
+	else if (Model.FilterString != null && Model.StringSearch == null)
 	{
 		@if (@Model.FilterInt != 0)
 		{
-			<h2 class="text-primary">Phim @Model.FilterInt</h2>
+			<h2 class="text-primary test">Phim @Model.FilterInt</h2>
 		}
 		else
 		{
-			<h2 class="text-primary">Phim @Model.FilterString</h2>
+			<h2 class="text-primary test">Phim @Model.FilterString</h2>
 		}
 		
 		<div class="recommended-movie-container">
@@ -122,6 +125,7 @@
 							</form>
 							<div class="movie-card-name">@movie.Title</div>
 						</div>
+						Model.HasMovie = true;
 					}else if (Model.FilterString.Equals("truoc 2014"))
 					{
 						if (movie.AirYear <= 2014)
@@ -141,9 +145,10 @@
 								</form>
 								<div class="movie-card-name">@movie.Title</div>
 							</div>
+							Model.HasMovie = true;
 						}
 					}					
-				}
+				}				
 			</div>
 		</div>
 	}
@@ -172,8 +177,13 @@
 						</form>
 						<div class="movie-card-name">@movie.Title</div>
 					</div>
+					Model.HasMovie = true;
 				}
 			</div>
 		</div>
+	}
+	@if (!Model.HasMovie)
+	{
+		<h2 text-secondary>Không tìm thấy phim trong danh mục này</h2>
 	}
 </div>

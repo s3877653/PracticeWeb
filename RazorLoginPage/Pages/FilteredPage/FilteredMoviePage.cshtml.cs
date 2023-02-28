@@ -55,6 +55,7 @@ namespace RazorLoginPage.Pages.FilteredPage
 		public int FilterInt { get; set; }
 		[BindProperty(SupportsGet = true)]
 		public string StringSearch { get; set; }
+		public bool HasMovie { get; set; }
 		public List<Movie> FilteredMovie = new();
 		private readonly ISearchService _searchService;
 
@@ -63,11 +64,12 @@ namespace RazorLoginPage.Pages.FilteredPage
 			
 			_searchService = searchService;
 		}
-		public void OnGet(string filterString = "",int filterInt=0)
+		public void OnGet(string filterString = "",int filterInt=0, bool hasMovie = false)
         {
 			FilteredMovie = _searchService.SearchMovieService(movieList, StringSearch);
 			FilterString = filterString;
 			FilterInt = filterInt;
+			HasMovie= hasMovie;
         }
 		public IActionResult OnPostMovieHandler()
 		{

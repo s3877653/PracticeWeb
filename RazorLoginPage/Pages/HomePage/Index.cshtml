@@ -57,10 +57,12 @@
 						@if (movie.IsPhimLe)
 						{
 							<span class="movie-tag">@movie.MovieState</span>
+							Model.HasMovie = true;
 						}
 						else
 						{
 							<span class="movie-tag">tap @movie.CurrentEpisodes/@movie.MaxEpisode</span>
+							Model.HasMovie = true;
 						}
 						<form method="post" class="movie-card-img" >
 							<input hidden value="@movie.Id" asp-for="MovieID" />
@@ -94,6 +96,7 @@
 							</form>
 							<div class="movie-card-name">@movie.Title</div>
 						</div>
+						Model.HasMovie = true;
 					}
 				}
 			</div>
@@ -120,6 +123,7 @@
 							</form>
 							<div class="movie-card-name">@movie.Title</div>
 						</div>
+						Model.HasMovie = true;
 					}
 				}
 			</div>
@@ -146,6 +150,7 @@
 							</form>
 							<div class="movie-card-name">@movie.Title</div>
 						</div>
+						Model.HasMovie = true;
 					}
 				}
 			</div>
@@ -162,21 +167,28 @@
 						@if (movie.IsPhimLe)
 						{
 							<span class="movie-tag">@movie.MovieState</span>
+							Model.HasMovie = true;
 						}
 						else
 						{
 							<span class="movie-tag">tap @movie.CurrentEpisodes/@movie.MaxEpisode</span>
+							Model.HasMovie = true;
 						}
 						<form method="post" class="movie-card-img">
 							<input hidden value="@movie.Id" asp-for="MovieID" />
 							<button type="submit" asp-page-handler="MovieHandler" class="btn movie-card-img-btn">movie image</button>
 						</form>
 						<div class="movie-card-name">@movie.Title</div>
+						
 					</div>
 				}
 			</div>
 		</div>
-	}		
+	}
+	@if (!Model.HasMovie)
+	{
+		<h2 class="text-secondary">Không tìm thấy phim nào</h2>
+	}
 </div>
 <footer>
 	test footer
