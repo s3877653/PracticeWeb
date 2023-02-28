@@ -46,7 +46,7 @@
 		<input type="text" placeholder="Tìm tên phim,diễn viên..." asp-for="StringSearch" />
 		<input type="submit" hidden />
 	</form>
-	@if (Model.Category.Equals("phimLe"))
+	@if (Model.FilterString.Equals("phimLe"))
 	{
 		<h2 class="text-primary">Phim Lẻ:</h2>
 		<div class="recommended-movie-container">
@@ -68,7 +68,7 @@
 			</div>
 		</div>
 	}
-	else if (Model.Category.Equals("phimBo"))
+	else if (Model.FilterString.Equals("phimBo"))
 	{
 		<h2 class="text-primary">Phim Bộ:</h2>
 		<div class="recommended-movie-container">
@@ -89,14 +89,14 @@
 				}
 			</div>
 		</div>
-	}else if(Model.Category != null)
+	}else if(Model.FilterString != null)
 	{
-		<h2 class="text-primary">Phim @Model.Category</h2>
+		<h2 class="text-primary">Phim @Model.FilterString</h2>
 		<div class="recommended-movie-container">
 			<div class="movie-row">
 				@foreach (var movie in Model.movieList)
 				{
-					@if (movie.Category.Contains(Model.Category))
+					@if (movie.Category.Contains(Model.FilterString) || movie.Nation.Equals(Model.FilterString))
 					{
 						<div class="movie-card">
 							@if (movie.IsPhimLe)

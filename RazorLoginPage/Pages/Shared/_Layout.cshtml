@@ -23,10 +23,10 @@
                             <a class="nav-link text-dark" asp-area="" asp-page="/HomePage/Index">PhimMoi</a>
                         </li>     
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-route-category="phimLe" asp-page="/FilteredPage/FilteredMoviePage">Phim Lẻ</a>
+                            <a class="nav-link text-dark" asp-route-filterString="phimLe" asp-page="/FilteredPage/FilteredMoviePage">Phim Lẻ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-route-category="phimBo" asp-page="/FilteredPage/FilteredMoviePage">Phim Bộ</a>
+                            <a class="nav-link text-dark" asp-route-filterString="phimBo" asp-page="/FilteredPage/FilteredMoviePage">Phim Bộ</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle nav-link text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -47,8 +47,19 @@
                                 
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="">Quốc Gia</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle nav-link text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Quốc gia
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" asp-page="/FilteredPage/FilteredMoviePage" asp-route-filterString="viet nam">Viện Nam</a></li>
+                                <li><a class="dropdown-item" asp-page="/FilteredPage/FilteredMoviePage" asp-route-filterString="nhat ban">Nhật Bản</a></li>
+                                <li><a class="dropdown-item" asp-page="/FilteredPage/FilteredMoviePage" asp-route-filterString="trung quoc">Trung Quốc</a></li>
+                                <li><a class="dropdown-item" asp-page="/FilteredPage/FilteredMoviePage" asp-route-filterString="han quoc">Hàn Quốc</a></li>
+                                <li><a class="dropdown-item" asp-page="/FilteredPage/FilteredMoviePage" asp-route-filterString="my">Mỹ</a></li>
+                                
+
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="">Năm Phát Hành</a>
