@@ -15,6 +15,7 @@
         public string Length { get; set; }
         public string Nation { get; set; }
         public double IMDbScore { get; set; }
+        public double AvgScore { get; set; }
         public List<string> Actors { get; set; }
         public int View { get; set; }
 
@@ -22,26 +23,28 @@
         
 
         
-        public Movie(int id, string title,string movieState ,string description,bool isPhimLe,
-            int airYear, List<string> category, string director,string currentEpisode,
-            string maxEpisode ,string length, string nation, double iMDbScore,
-            List<string> actors, int view)
-        {
-            Id = id;
-            Title = title;
-            MovieState = movieState;
-            Description = description;
-            IsPhimLe= isPhimLe;
-            AirYear = airYear;
-            Category = category;
-            Director = director;
-            CurrentEpisodes = currentEpisode;
-            MaxEpisode = maxEpisode;
-            Length = length;
-            Nation = nation;
-            IMDbScore = iMDbScore;
-            Actors = actors;
-            View = view;
-        }
-    }
+        public Movie(int id, string title, string movieState, string description, bool isPhimLe,
+			int airYear, List<string> category, string director, string currentEpisode,
+			string maxEpisode, string length, string nation, double iMDbScore,double avgScore,
+			List<string> actors, int view)
+		{
+			Id = id;
+			Title = title;
+			MovieState = movieState;
+			Description = description;
+			IsPhimLe = isPhimLe;
+			AirYear = airYear;
+			Category = category;
+			Director = director;
+			CurrentEpisodes = currentEpisode;
+			MaxEpisode = maxEpisode;
+			Length = length;
+			Nation = nation;
+			IMDbScore = iMDbScore;
+			AvgScore = avgScore;
+			Actors = actors;
+			View = view;
+			
+		}
+	 }
 }
