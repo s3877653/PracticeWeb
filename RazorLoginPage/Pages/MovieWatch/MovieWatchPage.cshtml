@@ -1,4 +1,44 @@
 ﻿@page
 @model RazorLoginPage.Pages.MovieWatch.MovieWatchPageModel
+<style>
+	.watch-sreen {
+		width: 100%;
+		height: 300px;
+		background-color: gray;
+		display: block;
+	}
+</style>
 <h2 class="text-primary">This is a movie watch page</h2>
-<p>movieId: @Model.Id</p>
+<div class="watch-sreen">Watch Screen</div>
+<div>Danh sach tap</div>
+<div>
+	danh gia phim:
+	<input />
+</div>
+<h2 class="text-primary">@Model.Movie.Title -
+	@if (Model.Movie.IsPhimLe)
+	{
+		@Model.Movie.MovieState
+	}
+	else
+	{
+		<span>Tap: @Model.Movie.CurrentEpisodes</span>
+	}
+</h2>
+<div class="banner">
+	<p style="white-space:nowrap">
+	<p style="display:inline-block"><a asp-page="/HomePage/Index">Xem phim</a>></p>
+	<a>
+			@foreach (var catergory in Model.Movie.Category)
+			{
+			<p style="display:inline-block"><a asp-page="/FilteredPage/FilteredMoviePage" asp-route-filterString="@catergory">@catergory</a>></p>
+			}
+	</a>
+		@Model.Movie.Title>@(Model.Movie.IsPhimLe ? Model.Movie.MovieState : Model.Movie.CurrentEpisodes)
+	</p>
+</div>
+<div>
+	Binh luan:
+	<input />
+</div>
+
