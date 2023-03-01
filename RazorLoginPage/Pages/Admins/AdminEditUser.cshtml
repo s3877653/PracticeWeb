@@ -1,0 +1,16 @@
+﻿@page
+@model RazorLoginPage.Pages.Admins.AdminEditUserModel
+<h2 class="text-primary">Edit user</h2>
+<form method="post">
+	<input hidden asp-for="User.UserId"/>
+	<label asp-for="User.UserName">User Name:</label>
+	<input asp-for="User.UserName" />
+	<span asp-validation-for="User.UserName"></span></br>
+	<label asp-for="User.Email">User Email:</label>
+	<input asp-for="User.Email" />
+	<span asp-validation-for="User.Email"></span></br>
+	<label asp-for="User.Password">User Password:</label>
+	<input asp-for="User.Password" />
+	<span asp-validation-for="User.Password"></span></br>
+	<button type="submit" asp-page-handler="EditUser" class="btn btn-primary">Edit</button>
+</form>

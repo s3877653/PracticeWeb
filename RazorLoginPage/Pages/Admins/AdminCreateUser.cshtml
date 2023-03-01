@@ -1,0 +1,15 @@
+﻿@page
+@model RazorLoginPage.Pages.Admins.AdminCreateUserModel
+<h2 class="text-primary">Add new user</h2>
+<form method="post">
+	<label asp-for="User.UserName">User name:</label>
+	<input asp-for="User.UserName" />
+	<span asp-validation-for="User.UserName"></span><br />
+	<label asp-for="User.Email">User Email:</label>
+	<input asp-for="User.Email" />
+	<span asp-validation-for="User.Email"></span><br />
+	<label asp-for="User.Password">User Password:</label>
+	<input asp-for="User.Password" />
+	<span asp-validation-for="User.Password"></span><br />
+	<button type="submit" asp-page-handler="CreateUser" class="btn btn-primary">Edit</button>
+</form>

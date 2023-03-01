@@ -11,6 +11,7 @@ namespace RazorLoginPage.Pages.Users
     {
         private readonly ApplicationDBContext _dbContext;
         public IEnumerable<User> Users { get; set; }
+        public User CurrentUser { get; set; }
 
         public IndexModel(ApplicationDBContext dbContext)
         {
@@ -19,7 +20,16 @@ namespace RazorLoginPage.Pages.Users
 
         public void OnGet()
         {
-            Users = _dbContext.Users;
+            Users = _dbContext.Users;           			           
+		}
+        
+        public async Task<IActionResult> OnPostDeleteHandler(int id)
+        {           
+			CurrentUser = _dbContext.Users.FirstOrDefault(u => u.UserId == id);
+			_dbContext.Remove(CurrentUser);
+            await _dbContext.SaveChangesAsync();
+            OnGet();
+            return Page();
         }
     }
 }
